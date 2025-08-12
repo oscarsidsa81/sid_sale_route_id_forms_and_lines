@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+        <!--SALE LINE - FORM 	model="ir.ui.view" 	sale.order.line.form para visualizar campo ruta-->
+
+        <record id="sid_sale_route_id_forms_and_lines.sale_form" model="ir.ui.view">
+            <field name="name">sid_sale_route_id_forms_and_lines.sale_form</field>
+            <field name="model">sale.order.line</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="sale_order_line_view_form_readonly"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='name']" position="after">
+                    <field name="route_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--SALE ORDER - ORDER_LINE FORM 	model="ir.ui.view" 	sale.order.order_line.form para limitar uso de campo ruta
+        en caso de pedido-->
+
+        <record id="sid_sale_route_id_forms_and_lines.order_line_form" model="ir.ui.view">
+            <field name="name">sid_sale_route_id_forms_and_lines.form</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="3002"/>
+            <field name="inherit_id" ref="view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//field[@name='route_id']" position="attributes">
+                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id",">",0]]}</attribute>
+                    <attribute name="options">{"no_open":true}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Origen OV - Varios campos y OV - Rutas-->
+
+        <record id="sid_sale_order_form_line_form.sale_line_tree" model="ir.ui.view">
+            <field name="name">sid_sale_order_form_line_form.sale_line_tree</field>
+            <field name="model">sale.order.line</field>
+            <field name="priority" eval="1600"/>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+
+                <!--Mueve campo de rutas después del comercial-->
+
+                <xpath expr="//field[@name='salesman_id']" position="after">
+                    <xpath expr="//field[@name='route_id']" position="move"/>
+                </xpath>
+
+                <!--Limita la posibilidad de modificar las rutas en caso de que el pedido esté confirmado-->
+
+                <xpath expr="//field[@name='route_id']" position="attributes">
+                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id",">",0]]}</attribute>
+                    <attribute name="options">{"no_open":true}</attribute>
+                </xpath>
+
+                <!--En caso de ruta de stock, muestra la línea en rojo si la demandada es mayor que la pronosticada
+                o disponible a fecha-->
+
+                <xpath expr="//field[@name='forecasted_qty']" position="attributes">
+                    <attribute name="decoration-bf">
+                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        forecasted_qty)
+                    </attribute>
+                    <attribute name="decoration-danger">
+                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        forecasted_qty)
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='virtual_available_at_date']" position="attributes">
+                    <attribute name="decoration-bf">
+                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        virtual_available_at_date)
+                    </attribute>
+                    <attribute name="decoration-danger">
+                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        virtual_available_at_date)
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+        <!-- MÓDULO DE MEJORA ACTIVIDADES DE VENTA
+        <xpath expr="//button[@name='action_view_purchase_orders']" position="after">
+        <button class="oe_stat_button" icon="fa-gears" type="action" name="1176"
+                attrs="{'invisible': [('x_sale_order_id_sale_activity_count', '=', 0)]}">
+            <field widget="statinfo" name="x_sale_order_id_sale_activity_count" string="Actividades"/>
+        </button>
+        </xpath>
+
+        <xpath expr="//field[@name='order_line']/tree//field[@name='route_id']" position="after">
+        <field name="x_sale_line_tags" widget="many2many_tags" readonly="1" string="Actividades"
+               options="{'color_field': 'x_color'}"/>
+        </xpath>
+
+        <xpath expr="//field[@name='order_line']/tree//field[@name='activity_ids']" position="attributes">
+        <attribute name="optional">hide</attribute>
+        </xpath>
+
+        -->
+
+
+        <!-- MÓDULO DE CATEGORÍAS DE PRODUCTO
+
+        <xpath expr="//field[@name='purchase_price']" position="after">
+        <field name="x_studio_monetary_field_ExXXQ"
+               string="Coste Recomendado"
+               attrs="{'invisible': [('x_studio_monetary_field_ExXXQ', '=', 0)]}"
+               style="color: yellow; background-color: black;"
+        />
+        </xpath>-->
