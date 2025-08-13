@@ -57,6 +57,7 @@
 
                 <xpath expr="//field[@name='order_id']" position="before">
                     <field name="state" optional="hide"/>
+                    <field name="route_block_oos" optional="hide"/>
                 </xpath>
 
                 <xpath expr="//field[@name='forecasted_qty']" position="attributes">
