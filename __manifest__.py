@@ -6,7 +6,7 @@
     'summary': 'Campos en vista tree y form para visualizar las líneas de factura por línea en form y line',
     'description': 'Campos en vista tree y form para visualizar las líneas de factura por línea en form y line',
     'author': 'oscarsidsa81',
-    'depends': ['base','sale_management','account_accountant'],
+    'depends': ['base','sale_management','stock'],
     'data': [
         'views/sid_sale_route_id_forms_and_lines.xml'
     ],

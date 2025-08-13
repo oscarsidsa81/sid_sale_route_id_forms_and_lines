@@ -24,7 +24,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='order_line']/form//field[@name='route_id']" position="attributes">
-                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id",">",0]]}</attribute>
+                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id","&gt;",0]]}</attribute>
                     <attribute name="options">{"no_open":true}</attribute>
                 </xpath>
             </field>
@@ -48,7 +48,7 @@
                 <!--Limita la posibilidad de modificar las rutas en caso de que el pedido esté confirmado-->
 
                 <xpath expr="//field[@name='route_id']" position="attributes">
-                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id",">",0]]}</attribute>
+                    <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id","&gt;",0]]}</attribute>
                     <attribute name="options">{"no_open":true}</attribute>
                 </xpath>
 
