@@ -65,7 +65,9 @@
                         forecasted_qty)
                     </attribute>
                 </xpath>
-
+                <xpath expr="//field[@name='product_uom_qty']" position="after">
+                    <field name="virtual_available_at_date" string="Disponible a Fecha" optional="show" readonly="1"/>
+                </xpath>
                 <xpath expr="//field[@name='virtual_available_at_date']" position="attributes">
                     <attribute name="decoration-bf">
                         (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
@@ -81,7 +83,6 @@
 
     </data>
 </odoo>
-
 
 
         <!-- MÓDULO DE MEJORA ACTIVIDADES DE VENTA
