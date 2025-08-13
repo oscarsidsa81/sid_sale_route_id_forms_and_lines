@@ -2,8 +2,8 @@
     <data>
         <!--SALE LINE - FORM 	model="ir.ui.view" 	sale.order.line.form para visualizar campo ruta-->
 
-        <record id="sid_sale_route_id_forms_and_lines.sale_line_form" model="ir.ui.view">
-            <field name="name">sid_sale_route_id_forms_and_lines.sale_line_form</field>
+        <record id="sid_sale_route_sale_line_form" model="ir.ui.view">
+            <field name="name">sid_sale_route_sale_line_form</field>
             <field name="model">sale.order.line</field>
             <field name="priority" eval="2001"/>
             <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
@@ -17,8 +17,8 @@
         <!--SALE ORDER - ORDER_LINE FORM 	model="ir.ui.view" 	sale.order.order_line.form para limitar uso de campo ruta
         en caso de pedido-->
 
-        <record id="sid_sale_route_id_forms_and_lines.order_line_form" model="ir.ui.view">
-            <field name="name">sid_sale_route_id_forms_and_lines.form</field>
+        <record id="sid_sale_route_order_line_form" model="ir.ui.view">
+            <field name="name">sid_sale_route_order_line_form</field>
             <field name="model">sale.order</field>
             <field name="priority" eval="3002"/>
             <field name="inherit_id" ref="sale.view_order_form"/>
@@ -32,8 +32,8 @@
 
         <!--Origen OV - Varios campos y OV - Rutas-->
 
-        <record id="sid_sale_order_form_line_form.sale_line_tree" model="ir.ui.view">
-            <field name="name">sid_sale_order_form_line_form.sale_line_tree</field>
+        <record id="sid_sale_order_sale_line_tree" model="ir.ui.view">
+            <field name="name">sid_sale_order_sale_line_tree</field>
             <field name="model">sale.order.line</field>
             <field name="priority" eval="1600"/>
             <field name="inherit_id" ref="sale.view_order_line_tree"/>
