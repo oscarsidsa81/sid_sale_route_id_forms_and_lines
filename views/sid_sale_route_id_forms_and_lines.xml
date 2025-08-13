@@ -55,6 +55,10 @@
                 <!--En caso de ruta de stock, muestra la línea en rojo si la demandada es mayor que la pronosticada
                 o disponible a fecha-->
 
+                <xpath expr="//field[@name='order_id']" position="before">
+                    <field name="state" optional="hide"/>
+                </xpath>
+
                 <xpath expr="//field[@name='forecasted_qty']" position="attributes">
                     <attribute name="decoration-bf">
                         (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
