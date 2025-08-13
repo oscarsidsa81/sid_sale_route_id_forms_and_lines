@@ -61,11 +61,11 @@
 
                 <xpath expr="//field[@name='forecasted_qty']" position="attributes">
                     <attribute name="decoration-bf">
-                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        (state != 'sale' and route_id and route_block_oos and product_uom_qty &gt;
                         forecasted_qty)
                     </attribute>
                     <attribute name="decoration-danger">
-                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        (state != 'sale' and route_id and route_block_oos and product_uom_qty &gt;
                         forecasted_qty)
                     </attribute>
                 </xpath>
@@ -74,11 +74,11 @@
                 </xpath>
                 <xpath expr="//field[@name='virtual_available_at_date']" position="attributes">
                     <attribute name="decoration-bf">
-                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        (state != 'sale' and route_id and route_block_oos and product_uom_qty &gt;
                         virtual_available_at_date)
                     </attribute>
                     <attribute name="decoration-danger">
-                        (state != 'sale' and route_id and route_id.do_not_sell_out_of_stock and product_uom_qty &gt;
+                        (state != 'sale' and route_id and route_block_oos and product_uom_qty &gt;
                         virtual_available_at_date)
                     </attribute>
                 </xpath>
