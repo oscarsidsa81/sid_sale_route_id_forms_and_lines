@@ -6,7 +6,7 @@
             <field name="name">sid_sale_route_id_forms_and_lines.sale_line_form</field>
             <field name="model">sale.order.line</field>
             <field name="priority" eval="2001"/>
-            <field name="inherit_id" ref="sale_order_line_view_form_readonly"/>
+            <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
             <field name="arch" type="xml">
                 <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='name']" position="after">
                     <field name="route_id"/>
@@ -21,7 +21,7 @@
             <field name="name">sid_sale_route_id_forms_and_lines.form</field>
             <field name="model">sale.order</field>
             <field name="priority" eval="3002"/>
-            <field name="inherit_id" ref="view_order_form"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='order_line']/form//field[@name='route_id']" position="attributes">
                     <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id",">",0]]}</attribute>
