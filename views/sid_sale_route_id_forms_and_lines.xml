@@ -2,10 +2,10 @@
     <data>
         <!--SALE LINE - FORM 	model="ir.ui.view" 	sale.order.line.form para visualizar campo ruta-->
 
-        <record id="sid_sale_route_id_forms_and_lines.sale_form" model="ir.ui.view">
-            <field name="name">sid_sale_route_id_forms_and_lines.sale_form</field>
+        <record id="sid_sale_route_id_forms_and_lines.sale_line_form" model="ir.ui.view">
+            <field name="name">sid_sale_route_id_forms_and_lines.sale_line_form</field>
             <field name="model">sale.order.line</field>
-            <field name="priority" eval="16"/>
+            <field name="priority" eval="2001"/>
             <field name="inherit_id" ref="sale_order_line_view_form_readonly"/>
             <field name="arch" type="xml">
                 <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='name']" position="after">
