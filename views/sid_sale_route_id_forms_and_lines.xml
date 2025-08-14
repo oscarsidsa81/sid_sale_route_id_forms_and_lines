@@ -18,10 +18,10 @@
         en caso de pedido-->
 
         <record id="sid_sale_route_order_line_form" model="ir.ui.view">
-            <field name="name">sale.order.line.tree</field>
-            <field name="model">sale.order.line</field>
-            <field name="priority" eval="2001"/>
-            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="3002"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='order_line']/form//field[@name='route_id']" position="attributes">
                     <attribute name="attrs">{"readonly": ["&amp;",["state","=","sale"],["id","&gt;",0]]}</attribute>
