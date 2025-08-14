@@ -19,7 +19,7 @@
 
         <record id="sid_sale_route_order_line_form" model="ir.ui.view">
             <field name="name">sale.order.line.tree</field>
-            <field name="model">sale.order</field>
+            <field name="model">sale.order.line</field>
             <field name="priority" eval="2001"/>
             <field name="inherit_id" ref="sale.view_order_line_tree"/>
             <field name="arch" type="xml">
